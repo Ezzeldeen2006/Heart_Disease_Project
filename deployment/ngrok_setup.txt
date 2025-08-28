@@ -1,0 +1,18 @@
+# Heart Disease Project - Ngrok Deployment Instructions
+
+1. Make sure all dependencies are installed:
+   pip install -r requirements.txt
+
+2. Open a terminal in the project directory and start the Streamlit app:
+   cd ui
+   streamlit run app.py
+
+3. When the app runs, the public Ngrok URL will automatically be generated and displayed in the sidebar:
+   Public app URL: https://abcd-1234.ngrok-free.app
+
+4. Open that public URL in a browser to access the app remotely.
+
+# Notes:
+- If you get an ngrok session error (ERR_NGROK_108), terminate any previous ngrok processes and restart the app.
+- Your Ngrok authtoken must be set up if required by your account. Run:
+  ngrok authtoken YOUR_NGROK_AUTH_TOKEN

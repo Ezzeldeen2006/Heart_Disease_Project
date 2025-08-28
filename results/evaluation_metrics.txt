@@ -1,0 +1,139 @@
+HEART DISEASE PREDICTION MODEL - EVALUATION METRICS
+=====================================================
+
+FEATURE SELECTION RESULTS
+-------------------------
+Top 12 Selected Features:
+1. thal_7.0
+2. cp_4.0
+3. exang_1.0
+4. thalach
+5. oldpeak
+6. slope_2.0
+7. ca_2.0
+8. ca_1.0
+9. cp_2.0
+10. cp_3.0
+11. sex_1.0
+12. trestbps
+
+Feature Importance Scores (RF column):
+- thalach: 0.1482
+- oldpeak: 0.1133
+- thal_7.0: 0.0972
+- cp_4.0: 0.0961
+- age: 0.0914
+- chol: 0.0799
+- trestbps: 0.0757
+- exang_1.0: 0.0572
+- sex_1.0: 0.0386
+- slope_2.0: 0.0409
+- ca_1.0: 0.0357
+- cp_3.0: 0.0266
+- ca_2.0: 0.0256
+- restecg_2.0: 0.0187
+- cp_2.0: 0.0145
+- ca_3.0: 0.0140
+- fbs_1.0: 0.0112
+- thal_6.0: 0.0087
+- slope_3.0: 0.0058
+- restecg_1.0: 0.0007
+
+-----------------------------------------------------
+
+BASELINE SUPERVISED MODELS PERFORMANCE
+--------------------------------------
+Logistic Regression:
+- Accuracy: 0.9016
+- Precision: 0.8438
+- Recall: 0.9643
+- F1-Score: 0.9000
+- AUC: 0.9589
+
+Decision Tree:
+- Accuracy: 0.7213
+- Precision: 0.6897
+- Recall: 0.7143
+- F1-Score: 0.7018
+- AUC: 0.7208
+
+Random Forest:
+- Accuracy: 0.8361
+- Precision: 0.8214
+- Recall: 0.8214
+- F1-Score: 0.8214
+- AUC: 0.9372
+
+Support Vector Machine:
+- Accuracy: 0.9180
+- Precision: 0.8710
+- Recall: 0.9643
+- F1-Score: 0.9153
+- AUC: 0.9675
+
+-----------------------------------------------------
+
+HYPERPARAMETER TUNING RESULTS
+------------------------------
+Accuracy Comparison:
+                     GridSearch  RandomSearch
+Decision Tree             0.7830        0.7830
+Logistic Regression       0.9578        0.9589
+Random Forest             0.9416        0.9372
+SVM                       0.9600        0.9583
+
+AUC Comparison:
+                     GridSearch  RandomSearch
+Decision Tree             0.7229        0.8934
+Logistic Regression       0.9578        0.9589
+Random Forest             0.9513        0.9556
+SVM                       0.9600        0.9594
+
+-----------------------------------------------------
+
+BEST MODEL PERFORMANCE
+----------------------
+Best Model: Support Vector Machine (GridSearch)
+- Accuracy: 0.8852
+- AUC: 0.9600
+- Best Parameters: 
+  {'C': 10, 'gamma': 'scale', 'kernel': 'linear'}
+
+Classification Report:
+              precision    recall  f1-score   support
+           0       0.93      0.85      0.89        33
+           1       0.84      0.93      0.88        28
+    accuracy                           0.89        61
+   macro avg       0.89      0.89      0.89        61
+weighted avg       0.89      0.89      0.89        61
+
+Confusion Matrix:
+Predicted    0   1
+Actual            
+0           28   5
+1            2  26
+
+-----------------------------------------------------
+
+UNSUPERVISED LEARNING RESULTS
+-----------------------------
+K-Means Clustering:
+- Optimal K: 2
+- Silhouette Score: 0.243
+- Adjusted Rand Index: 0.316
+
+Hierarchical Clustering:
+- Optimal Clusters: 2
+- Silhouette Score: 0.229
+- Adjusted Rand Index: 0.252
+
+-----------------------------------------------------
+
+MODEL DEPLOYMENT INFO
+---------------------
+Model Type: Support Vector Machine (SVC)
+Final Model File: ../models/final_model.pkl
+Pipeline File: ../models/final_pipeline.pkl
+Training Date: 2025-08-23
+Python Version: 3.13.5
+Scikit-learn Version: 1.7.1
